@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="card" style="width: 18rem;" *ngFor="let pro of products" class="col-sm-2">
+    <img class="card-img-top" src="https://helpx.adobe.com/in/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg/100px180/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{pro.title}}</h5>
+      <p class="card-text">{{pro.discription}}</p>
+      <button class="btn btn-primary">Add to Cart</button>
+      <button class="btn btn-primary">Add to wishlist</button>
+    </div>
+  </div>  
+</div>
+
