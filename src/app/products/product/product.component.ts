@@ -23,10 +23,14 @@ export class ProductComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
-          if(this.id=='tshirt'){
+          if(this.id=='New'){
+            this.element = this.productService.tshirts;
+          }else if(this.id=='Shirt'){
+            this.element = this.productService.products;
+          }else if(this.id=='Tshirt'){
             this.element = this.productService.tshirts;
           }else{
-            this.element = this.productService.products;
+            this.element = this.productService.products; 
           }
         }
       );
