@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ProductService } from '../product.service';
 
 
 @Component({
@@ -7,23 +10,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products=[
-  {
-    title:'Card title1',
-    discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-  },
-  {
-    title:'Card title2',
-    discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-  },
-  {
-    title:'Card title3',
-    discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-  }
-]
-  constructor() { }
+  element:{title:string,discription:string}[];
+  id:string;
+  paramsSubscription:Subscription;
+
+  
+  constructor(private router:Router,private route : ActivatedRoute,private productService :ProductService) { }
 
   ngOnInit() {
+    this.id=this.route.params['id'];
+    this.paramsSubscription = this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+          if(this.id=='tshirt'){
+            this.element = this.productService.tshirts;
+          }else{
+            this.element = this.productService.products;
+          }
+        }
+      );
+    
+  }
+
+  ngOnDestroy(){
+    this.paramsSubscription.unsubscribe();
   }
 
 }
