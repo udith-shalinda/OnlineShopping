@@ -1,0 +1,7 @@
+<form [formGroup]="signinform" (ngSubmit)="signin()">
+    <label for="email">Enter the e-mail</label>
+    <input type="email" placeholder="e-mail"  class="form-control" formControlName="email"> 
+    <label for="password">Enter the password</label>
+    <input type="text" placeholder="password"  class="form-control" formControlName="password">
+    <button type="submit" class="btn btn-primary">Sign In</button>
+  </form>

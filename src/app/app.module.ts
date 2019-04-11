@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductService } from './products/product.service';
 import { CategoryComponent } from './category/category.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,15 @@ import { CategoryComponent } from './category/category.component';
     FooterComponent,
     HomeComponent,
     ProductComponent,
-    CategoryComponent
+    CategoryComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

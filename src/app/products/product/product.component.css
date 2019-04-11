@@ -5,3 +5,7 @@
     border:1px red solid;
     
 } */
+.inlineElement{
+    display: inline-flex;
+    height: 350px;
+}

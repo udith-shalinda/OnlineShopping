@@ -4,8 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './products/product/product.component';
 import { FooterComponent } from './nav/footer/footer.component';
 import { CategoryComponent } from './category/category.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    redirectTo:'Home',
+    pathMatch:'full'
+  },
   {
   path:'Home',
   component:HomeComponent,
@@ -33,6 +39,14 @@ const routes: Routes = [
       component:ProductComponent
     }
   ]
+},
+{
+  path:'signin',
+  component:SigninComponent
+},
+{
+  path:'**',
+  redirectTo:'/Home'
 }
 
 ];
