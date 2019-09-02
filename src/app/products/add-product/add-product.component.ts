@@ -11,6 +11,7 @@ import { ProductService } from '../product.service';
 })
 export class AddProductComponent implements OnInit {
   productForm : FormGroup;
+  // images:File[];
 
   constructor(
     private productService: ProductService,
@@ -18,16 +19,34 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.productForm = new FormGroup({
-      'name':new FormControl(''),
-      'price':new FormControl(''),
-      'image':new FormControl(null)
+      'name':new FormControl(null,{validators:[Validators.required]}),
+      'price':new FormControl(null,{validators:[Validators.required]}),
+      'image':new FormControl(null,{validators:[Validators.required]})
     })
+  }
+  imagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.productForm.patchValue({ image: file });
+     this.productForm.get("image").updateValueAndValidity();
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: ProgressEvent) => {
+      const fr: FileReader = <FileReader>e.target;
+      // this.imagepre = fr.result;
+    };
+    reader.readAsDataURL(file);
+    //to multiple uploads
+    // if((event.target as HTMLInputElement).files.length > 1){
+    //   for (var i = 0; i < (event.target as HTMLInputElement).files.length; i++) {
+    //     this.images[i] = (event.target as HTMLInputElement).files[i];
+    //   }
+    // }
   }
   addProduct(){
     this.productService.addItem(
       this.productForm.value.name,
       this.productForm.value.price,
-      this.productForm.value.image
+      this.productForm.value.image,
+      // this.images
     );
   }
 

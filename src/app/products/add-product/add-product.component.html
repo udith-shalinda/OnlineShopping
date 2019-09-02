@@ -9,7 +9,7 @@
             <input type="email" placeholder="name"  class="form-control" formControlName="name"> 
             <label for="password">Enter the price of the product</label>
             <input type="text" placeholder="price"  class="form-control" formControlName="price">
-            <input type="file" value="add Images"  class="form-control" formControlName="image">
+            <input type="file" value="add Images"  class="form-control" (change)="imagePicked($event)" multiple>
             <div>
               <span fxFlex></span>
               <button type="submit" mat-raised-button color="primary" >Add</button>

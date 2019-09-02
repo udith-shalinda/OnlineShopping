@@ -23,8 +23,7 @@ export class SigninComponent implements OnInit {
     })
   }
   signin(){
-    console.log('heoosfsffs');
-    this.authService.userLogin("testone@test.com","password");
+    this.authService.userLogin(this.signinform.value.email,this.signinform.value.password);
   }
 
 }
