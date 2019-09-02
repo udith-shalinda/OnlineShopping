@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,23 +10,21 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   signinform : FormGroup;
-  email='test@test.com';
-  password='password';
-
-  constructor(private router:Router) { }
+  
+  constructor(
+    private router:Router,
+    private authService:AuthService
+    ) { }
 
   ngOnInit() {
     this.signinform = new FormGroup({
-      'email':new FormControl(),
-      'password':new FormControl()
+      'email':new FormControl(null,{validators:Validators.required}),
+      'password':new FormControl(null,{validators:Validators.required})
     })
   }
   signin(){
-    if(this.email== this.signinform.value.email && this.password== this.signinform.value.password){
-        this.router.navigate(['/Home']);
-    }else{
-      console.log('email or password is incorrect');
-    }
+    console.log('heoosfsffs');
+    this.authService.userLogin("testone@test.com","password");
   }
 
 }

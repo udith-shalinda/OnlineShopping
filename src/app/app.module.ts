@@ -15,8 +15,12 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import {MatToolbarModule,MatButtonModule, MatCardModule} from '@angular/material';
+import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { AuthService } from './auth/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ProductComponent,
     CategoryComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -35,13 +40,19 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    FlexLayoutModule 
+    FlexLayoutModule,
+    MatIconModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import { FooterComponent } from './nav/footer/footer.component';
 import { CategoryComponent } from './category/category.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,9 @@ const routes: Routes = [
 {
   path:'signup',
   component:SignupComponent
+},{
+  path:'addItem',
+  component:AddProductComponent
 },
 {
   path:'**',

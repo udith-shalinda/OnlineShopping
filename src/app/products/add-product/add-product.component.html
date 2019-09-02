@@ -1,0 +1,19 @@
+<mat-card>
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()" >
+            <div>
+                <span fxFlex></span>
+                  <h2>Add product for sale</h2>
+                <span fxFlex></span>
+              </div>
+            <label for="email">Enter the name of the product</label>
+            <input type="email" placeholder="name"  class="form-control" formControlName="name"> 
+            <label for="password">Enter the price of the product</label>
+            <input type="text" placeholder="price"  class="form-control" formControlName="price">
+            <input type="file" value="add Images"  class="form-control" formControlName="image">
+            <div>
+              <span fxFlex></span>
+              <button type="submit" mat-raised-button color="primary" >Add</button>
+              <span fxFlex></span>
+            </div>
+          </form>
+      </mat-card>
