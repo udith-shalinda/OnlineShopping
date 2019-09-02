@@ -15,7 +15,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import {MatToolbarModule,MatButtonModule} from '@angular/material';
+import {MatToolbarModule,MatButtonModule, MatCardModule} from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import {MatToolbarModule,MatButtonModule} from '@angular/material';
     BrowserAnimationsModule,
 
     MatToolbarModule,
-    MatButtonModule   
+    MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule 
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
