@@ -8,4 +8,6 @@
 .inlineElement{
     display: inline-flex;
     height: 350px;
+    margin:1%;
+    /* padding:1%; */
 }

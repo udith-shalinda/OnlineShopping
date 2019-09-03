@@ -15,6 +15,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {SlideshowModule} from 'ng-simple-slideshow';
+import { ScrollEventModule } from 'ngx-scroll-event';
 
 import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -47,6 +48,7 @@ import { CartComponent } from './products/cart/cart.component';
     BrowserAnimationsModule,
     HttpClientModule,
     SlideshowModule,
+    ScrollEventModule,
 
     MatToolbarModule,
     MatButtonModule,

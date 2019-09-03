@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.productService.getAllItems(3,1);
+    this.productService.getAllItems(this.postsPerPage,this.currentPage);
     this.itemSub = this.productService.getItemsUpdateListener().subscribe((itemData :{list:any[],maxPosts:number})=>{
       this.listItem= itemData.list;
       this.totalPosts = itemData.maxPosts;
