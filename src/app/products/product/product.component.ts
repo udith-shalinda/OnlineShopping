@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../product.service';
+import { PageEvent } from '@angular/material';
 
 
 @Component({
@@ -10,35 +11,38 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  element:{title:string,discription:string}[];
-  id:string;
-  paramsSubscription:Subscription;
-
+  totalPosts=10;
+  postsPerPage = 5;
+  postsSizeOptions = [1,2,5,10];
+  currentPage = 1;
+  listItem :any[] = [];
+  itemSub:Subscription;
+  isLoading = false;
   
-  constructor(private router:Router,private route : ActivatedRoute,private productService :ProductService) { }
+  constructor(
+    private router:Router,
+    private route : ActivatedRoute,
+    private productService :ProductService
+    ) { }
 
   ngOnInit() {
-    this.id=this.route.params['id'];
-    this.paramsSubscription = this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = params['id'];
-          if(this.id=='New'){
-            this.element = this.productService.tshirts;
-          }else if(this.id=='Shirt'){
-            this.element = this.productService.products;
-          }else if(this.id=='Tshirt'){
-            this.element = this.productService.tshirts;
-          }else{
-            this.element = this.productService.products; 
-          }
-        }
-      );
+    this.isLoading = true;
+    this.productService.getAllItems(3,1);
+    this.itemSub = this.productService.getItemsUpdateListener().subscribe((itemData :{list:any[],maxPosts:number})=>{
+      this.listItem= itemData.list;
+      this.totalPosts = itemData.maxPosts;
+      this.isLoading = false;
+    });
     
   }
 
   ngOnDestroy(){
-    this.paramsSubscription.unsubscribe();
+    this.itemSub.unsubscribe();
   }
-
+  OnChangePage(pageEvent:PageEvent){
+    // this.isLoading = true;
+    this.currentPage = pageEvent.pageIndex+1;
+    this.postsPerPage = pageEvent.pageSize;
+    // this.dataservice.getdata(this.postsPerPage,this.currentPage);
+  }
 }

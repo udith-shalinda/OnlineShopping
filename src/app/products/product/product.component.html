@@ -1,12 +1,16 @@
-<div >
-  <div class="card inlineElement" style="width: 18rem;" *ngFor="let pro of element" >
-    <img class="card-img-top" src="https://helpx.adobe.com/in/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg/100px180/" alt="Card image cap">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div>
+  <div class="card inlineElement" style="width: 18rem;" *ngFor="let pro of listItem" >
+    <img class="card-img-top" [src]="pro.imageOne" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{pro.title}}</h5>
-      <p class="card-text">{{pro.discription}}</p>
+      <h5 class="card-title">{{pro.name}}</h5>
+      <p class="card-text">{{pro.price}}</p>
       <button class="btn btn-primary">Add to Cart</button>
       <button class="btn btn-primary">Add to wishlist</button>
     </div>
-  </div>  
+  </div>
+  <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" 
+        [pageSizeOptions]="postsSizeOptions" (page)="OnChangePage($event)"
+        ></mat-paginator>  
 </div>
  

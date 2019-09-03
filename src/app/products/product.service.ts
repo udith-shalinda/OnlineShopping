@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { ProductData } from './product-module';
+import { Subscription, Subject } from 'rxjs';
 
 @Injectable({providedIn:'root'})
 export class ProductService{
+    items :any[] = [];
+    itemSub=new Subject<{list:any[],maxPosts:number}>();
+
     products=[
         {
           title:'Card title1',
@@ -56,5 +59,20 @@ export class ProductService{
             this.router.navigate(["/"]);
             console.log(responseData);
         });
+      }
+      getAllItems(postPerPage:number,currentPage:number){
+        const queryParams = `?pageSize=${postPerPage}&page=${currentPage}`;
+        this.http.get<{message:string,item:any[]}>('http://localhost:5000/item/getAll'+queryParams)
+        .subscribe((response)=>{
+          console.log(response.item);
+          this.items = response.item;
+          this.itemSub.next({
+            list:[...this.items],
+            maxPosts:this.items.length
+          })
+        });
+      }
+      getItemsUpdateListener(){
+        return this.itemSub.asObservable();
       }
 }

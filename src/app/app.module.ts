@@ -15,7 +15,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
+import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -46,7 +46,9 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     MatButtonModule,
     MatCardModule,
     FlexLayoutModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     ProductService,
