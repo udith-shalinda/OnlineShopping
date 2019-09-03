@@ -40,9 +40,9 @@ export class ProductComponent implements OnInit {
     this.itemSub.unsubscribe();
   }
   OnChangePage(pageEvent:PageEvent){
-    // this.isLoading = true;
+    this.isLoading = true;
     this.currentPage = pageEvent.pageIndex+1;
     this.postsPerPage = pageEvent.pageSize;
-    // this.dataservice.getdata(this.postsPerPage,this.currentPage);
+    this.productService.getAllItems(this.postsPerPage,this.currentPage);
   }
 }

@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<div>
+<div *ngIf="!isLoading">
   <div class="card inlineElement" style="width: 18rem;" *ngFor="let pro of listItem" >
     <img class="card-img-top" [src]="pro.imageOne" alt="Card image cap">
     <div class="card-body">
