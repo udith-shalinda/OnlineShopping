@@ -14,6 +14,7 @@ import { CategoryComponent } from './category/category.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -21,6 +22,7 @@ import { AuthService } from './auth/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { SingleProductComponent } from './products/single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     CategoryComponent,
     SignupComponent,
     SigninComponent,
-    AddProductComponent
+    AddProductComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SlideshowModule,
 
     MatToolbarModule,
     MatButtonModule,

@@ -1,12 +1,21 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <div *ngIf="!isLoading">
   <div class="card inlineElement" style="width: 18rem;" *ngFor="let pro of listItem" >
-    <img class="card-img-top" [src]="pro.imageOne" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{pro.name}}</h5>
-      <p class="card-text">{{pro.price}}</p>
-      <button class="btn btn-primary">Add to Cart</button>
-      <button class="btn btn-primary">Add to wishlist</button>
+    <div  [routerLink]="['/home',pro.id]">
+      <!-- <img class="card-img-top" [src]="pro.imageOne" alt="Card image cap"> -->
+      <slideshow 
+           [height] = "'200px'"
+           [autoPlay]="true"
+           [showArrows]="false"
+           [imageUrls]="pro.imageList"
+           >
+        </slideshow>
+      <div class="card-body">
+        <h5 class="card-title">{{pro.name}}</h5>
+        <p class="card-text">{{pro.price}}</p>
+        <button class="btn btn-primary" [routerLink]="['/home',pro.id]">Add to Cart</button>
+        <button class="btn btn-primary">Add to wishlist</button>
+      </div>
     </div>
   </div>
   <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" 
@@ -14,3 +23,4 @@
         ></mat-paginator>  
 </div>
  
+<!-- <slideshow [imageUrls]="listItem[0].imageList"></slideshow> -->

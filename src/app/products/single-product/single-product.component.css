@@ -1,0 +1,15 @@
+mat-card{
+    /* height: 250px; */
+    width: 100%;
+}
+img{
+    width:30%;
+    padding: 1%;
+}
+#slideshow{
+    width:95%;
+    /* height: 95%; */
+}
+#subImages{
+    width: 95%;
+}

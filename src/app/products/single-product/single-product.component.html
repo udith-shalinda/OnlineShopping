@@ -1,0 +1,34 @@
+<mat-card>
+    <div fxFlex>
+        <div id="slideshow">
+            <slideshow 
+               [minHeight] = "'300px'"
+               [autoPlay]="false"
+               [showArrows]="true"
+               [imageUrls]="imageUrlArray"
+               >
+            </slideshow>
+        </div>
+        <div id="subImages">
+            <img [src]="itemDetails.imageOne" alt="image" fxFlex>
+            <img [src]="itemDetails.imageTwo" alt="image" fxFlex>
+            <img [src]="itemDetails.imageThree" alt="image" fxFlex>
+        </div>
+    </div>
+    <div fxFlex>
+        <mat-card-content >
+            <h3>
+                {{itemDetails.name}}
+            </h3>
+            <p>
+            {{itemDetails.price}}
+            </p>
+    
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Add to cart</button>
+            <button mat-raised-button color="warn">buy</button>
+        </mat-card-actions>
+    </div>
+        
+</mat-card>
