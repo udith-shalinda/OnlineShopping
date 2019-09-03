@@ -1,19 +1,20 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <div *ngIf="!isLoading">
   <div class="card inlineElement" style="width: 18rem;" *ngFor="let pro of listItem" >
-    <div  [routerLink]="['/home',pro.id]">
+    <div>
       <!-- <img class="card-img-top" [src]="pro.imageOne" alt="Card image cap"> -->
       <slideshow 
            [height] = "'200px'"
            [autoPlay]="true"
            [showArrows]="false"
            [imageUrls]="pro.imageList"
+           [routerLink]="['/home',pro.id]"
            >
         </slideshow>
       <div class="card-body">
         <h5 class="card-title">{{pro.name}}</h5>
         <p class="card-text">{{pro.price}}</p>
-        <button class="btn btn-primary" [routerLink]="['/home',pro.id]">Add to Cart</button>
+        <button class="btn btn-primary" (click)='addToCart(pro.id)'>Add to Cart</button>
         <button class="btn btn-primary">Add to wishlist</button>
       </div>
     </div>

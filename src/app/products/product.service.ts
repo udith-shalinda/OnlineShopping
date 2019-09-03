@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductData } from './product-module';
 import {map} from 'rxjs/operators';
-import { Subscription, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({providedIn:'root'})
 export class ProductService{
@@ -90,5 +90,11 @@ export class ProductService{
       }
       getItemById(id:string){
         return this.http.get<{item:any}>('http://localhost:5000/item/getItemById/'+id);
+      }
+      addToCart(itemId:string){
+        this.http.post('http://localhost:5000/item/addToCart',itemId)
+        .subscribe(response=>{
+          console.log(response);
+        });
       }
 }

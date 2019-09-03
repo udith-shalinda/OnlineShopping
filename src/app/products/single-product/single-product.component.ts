@@ -41,5 +41,8 @@ export class SingleProductComponent implements OnInit {
   onDestroy(){
     this.paramsSubscription.unsubscribe();
   }
+  addToCart(){
+    this.productService.addToCart(this.procuctId);
+  }
 
 }

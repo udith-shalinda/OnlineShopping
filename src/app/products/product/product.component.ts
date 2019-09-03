@@ -45,4 +45,7 @@ export class ProductComponent implements OnInit {
     this.postsPerPage = pageEvent.pageSize;
     this.productService.getAllItems(this.postsPerPage,this.currentPage);
   }
+  addToCart(itemId:string){
+    this.productService.addToCart(itemId);
+  }
 }
