@@ -8,6 +8,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { SingleProductComponent } from './products/single-product/single-product.component';
+import { CartComponent } from './products/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
 },{
   path:'addItem',
   component:AddProductComponent
+},
+{
+  path:'cart',
+  component:CartComponent
 },
 {
   path:'**',

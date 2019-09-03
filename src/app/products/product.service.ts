@@ -10,29 +10,6 @@ export class ProductService{
     items :any[] = [];
     itemSub=new Subject<{list:any[],maxPosts:number}>();
 
-    products=[
-        {
-          title:'Card title1',
-          discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        },
-        {
-          title:'Card title2',
-          discription:"Some quick example text  content.",
-        },
-        {
-          title:'Card title3',
-          discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        }
-      ]
-      tshirts=[{
-        
-          title:'Card title1',
-          discription:"Some quick example text to build on the card title and make up the bulk of the card's content.",
-        },
-        {
-          title:'Card title2',
-          discription:"Some quick example text  content.",
-      }];
 
       constructor(
         private http:HttpClient,
@@ -92,9 +69,15 @@ export class ProductService{
         return this.http.get<{item:any}>('http://localhost:5000/item/getItemById/'+id);
       }
       addToCart(itemId:string){
-        this.http.post('http://localhost:5000/item/addToCart',itemId)
+        const newData={
+          itemId:itemId,
+        }
+        this.http.post('http://localhost:5000/item/addToCart',newData)
         .subscribe(response=>{
           console.log(response);
         });
+      }
+      getMyCart(){
+        return this.http.get<{result:any}>('http://localhost:5000/item/getMyCart');
       }
 }

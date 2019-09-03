@@ -23,6 +23,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { SingleProductComponent } from './products/single-product/single-product.component';
+import { CartComponent } from './products/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SingleProductComponent } from './products/single-product/single-product
     SignupComponent,
     SigninComponent,
     AddProductComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

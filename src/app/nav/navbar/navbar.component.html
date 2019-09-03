@@ -4,7 +4,7 @@
   <button mat-button routerLink="/Category">Categories</button>
   <button mat-button routerLink="/signin" *ngIf="!userIsAuthentication">Signin</button>
   <button mat-button routerLink="/signup" *ngIf="!userIsAuthentication">Signup</button>
-  <button mat-button><mat-icon routerLink="/addItem" *ngIf="userIsAuthentication">shopping_cart</mat-icon></button>
+  <button mat-button><mat-icon routerLink="/cart" *ngIf="userIsAuthentication">shopping_cart</mat-icon></button>
   <button mat-button routerLink="/addItem" *ngIf="userIsAuthentication">Sell Item</button>
   <button mat-button (click)="logout()" *ngIf="userIsAuthentication">Log out</button>
 

@@ -1,0 +1,16 @@
+<div *ngIf="!isLoading">
+    <mat-card *ngFor="let item of cartItemList" >
+        <div fxFlex="40">
+            <img [src]="item.itemInfo[0].imageOne" [alt]="item.itemInfo[0].name">
+        </div>
+        <div fxFlex>
+            <h3>{{item.itemInfo[0].name}}</h3>
+            <p>{{item.itemInfo[0].price}}</p>
+        </div>
+        <div fxFlex>
+            <button mat-raised-button color="primary">Check out</button>
+            <button mat-raised-button color="warn"><mat-icon>delete</mat-icon></button>
+        </div>
+    </mat-card>
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
