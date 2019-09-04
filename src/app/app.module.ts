@@ -19,7 +19,7 @@ import { ScrollEventModule } from 'ngx-scroll-event';
 import { NgxPayPalModule } from 'ngx-paypal';
 
 
-import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule} from '@angular/material';
+import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule, MatCheckboxModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -28,6 +28,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { SingleProductComponent } from './products/single-product/single-product.component';
 import { CartComponent } from './products/cart/cart.component';
 import { CheckoutComponent } from './products/checkout/checkout.component';
+
+
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { CheckoutComponent } from './products/checkout/checkout.component';
     FlexLayoutModule,
     MatIconModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCheckboxModule
   ],
   providers: [
     ProductService,

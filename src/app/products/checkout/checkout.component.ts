@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import { ProductService } from '../product.service';
 
 
 @Component({
@@ -9,9 +10,15 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 })
 export class CheckoutComponent implements OnInit {
 
-  public payPalConfig?: IPayPalConfig;
+  public payPalConfig?: IPayPalConfig; 
+  totalPrice="0";
+  
+  constructor(
+    private productService:ProductService
+  ){}
 
     ngOnInit(): void {
+      this.totalPrice = this.productService.getPrice();
       this.initConfig();
     }
 

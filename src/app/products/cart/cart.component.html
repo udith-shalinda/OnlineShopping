@@ -8,9 +8,17 @@
             <p>{{item.itemInfo[0].price}}</p>
         </div>
         <div fxFlex>
-            <button mat-raised-button color="primary">Check out</button>
+            <button  (click)="item.isChecked = !item.isChecked" *ngIf="!item.isChecked" mat-raised-button color="warn">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button  (click)="item.isChecked = !item.isChecked" *ngIf="item.isChecked" mat-raised-button color="warn">
+                <mat-icon>remove</mat-icon>
+            </button>
             <button mat-raised-button color="warn"><mat-icon>delete</mat-icon></button>
         </div>
+    </mat-card>
+    <mat-card>
+        <button mat-raised-button (click)="checkoutClicked()">Check out</button>
     </mat-card>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>

@@ -1,1 +1,7 @@
-<ngx-paypal [config]="payPalConfig"></ngx-paypal>
+<mat-card>
+    <span fxFlex>
+        <h2>{{totalPrice}}</h2>
+    </span>
+    <ngx-paypal [config]="payPalConfig" fxFlex></ngx-paypal>
+    <span fxFlex></span>
+</mat-card>
