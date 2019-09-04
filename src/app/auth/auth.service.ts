@@ -56,7 +56,7 @@ export class AuthService{
             password:password
         }
         this.http.post<{ token : string ,userId:string}>("http://localhost:5000/user/login",userdata)
-        .subscribe(response=>{  
+        .subscribe((response)=>{  
             if(response.token){
                 this.token = response.token;
                 this.isAuthed = true;

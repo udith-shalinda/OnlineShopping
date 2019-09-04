@@ -10,16 +10,16 @@ export class AppComponent {
   title = 'onlineshopping';
   
   public handleScroll(event: ScrollEvent) {
-    console.log('scroll occurred', event.originalEvent);
-    if (event.isReachingBottom) {
-      console.log(`the user is reaching the bottom`);
-    }
-    if (event.isReachingTop) {
-      console.log(`the user is reaching the top`);
-    }
-    if (event.isWindowEvent) {
-      console.log(`This event is fired on Window not on an element.`);
-    }
+    // console.log('scroll occurred', event.originalEvent);
+    // if (event.isReachingBottom) {
+    //   console.log(`the user is reaching the bottom`);
+    // }
+    // if (event.isReachingTop) {
+    //   console.log(`the user is reaching the top`);
+    // }
+    // if (event.isWindowEvent) {
+    //   console.log(`This event is fired on Window not on an element.`);
+    // }
  
   }
 }

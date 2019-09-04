@@ -1,4 +1,4 @@
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading ">
     <mat-card *ngFor="let item of cartItemList" >
         <div fxFlex="40">
             <img [src]="item.itemInfo[0].imageOne" [alt]="item.itemInfo[0].name">
@@ -14,3 +14,5 @@
     </mat-card>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<h6 *ngIf="isEmpty && !isLoading">no items found in your cart</h6>

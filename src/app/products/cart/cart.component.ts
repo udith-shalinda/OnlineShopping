@@ -22,6 +22,9 @@ export class CartComponent implements OnInit {
       console.log(response.result);
       this.cartItemList = response.result;
       this.isLoading = false;
+      if(this.cartItemList.length=== 0){
+        this.isEmpty = true;
+      }
     });
   }
 
