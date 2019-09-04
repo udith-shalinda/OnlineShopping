@@ -9,6 +9,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { SingleProductComponent } from './products/single-product/single-product.component';
 import { CartComponent } from './products/cart/cart.component';
+import { CheckoutComponent } from './products/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,9 @@ const routes: Routes = [
 {
   path:'cart',
   component:CartComponent
+},{
+  path:'checkout',
+  component:CheckoutComponent
 },
 {
   path:'**',

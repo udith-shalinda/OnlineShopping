@@ -14,7 +14,7 @@
         <h5 class="card-title">{{pro.name}}</h5>
         <p class="card-text">{{pro.price}}</p>
         <button class="btn btn-primary" (click)='addToCart(pro.id)'>Add to Cart</button>
-        <button class="btn btn-primary">buy</button>
+        <button class="btn btn-primary" routerLink="/checkout">buy</button>
       </div>
     </div>
   </div>

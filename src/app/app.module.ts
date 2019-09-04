@@ -16,6 +16,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { ScrollEventModule } from 'ngx-scroll-event';
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 import {MatToolbarModule,MatButtonModule, MatCardModule, MatIconModule, MatPaginatorModule, MatProgressSpinnerModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -25,6 +27,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { SingleProductComponent } from './products/single-product/single-product.component';
 import { CartComponent } from './products/cart/cart.component';
+import { CheckoutComponent } from './products/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { CartComponent } from './products/cart/cart.component';
     SigninComponent,
     AddProductComponent,
     SingleProductComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { CartComponent } from './products/cart/cart.component';
     HttpClientModule,
     SlideshowModule,
     ScrollEventModule,
+    NgxPayPalModule,
 
     MatToolbarModule,
     MatButtonModule,
