@@ -1,0 +1,20 @@
+<mat-card>
+    <form [formGroup]="personalInfo" (ngSubmit)="addPersonalInfo()" >
+        <div>
+            <span fxFlex></span>
+              <h2>Add product for sale</h2>
+            <span fxFlex></span>
+          </div>
+        <label for="name">Enter the name of the product</label>
+        <input type="text" placeholder="name"  class="form-control" formControlName="name"> 
+        <label for="address">Enter the address of the product</label>
+        <input type="text" placeholder="address"  class="form-control" formControlName="address">
+        <label for="mobile">Enter the price of the product</label>            
+        <input type="text" placeholder="mobile"  class="form-control" formControlName="mobile">
+        <div>
+          <span fxFlex></span>
+          <button type="submit" mat-raised-button color="primary" >Add</button>
+          <span fxFlex></span>
+        </div>
+      </form>
+  </mat-card>
