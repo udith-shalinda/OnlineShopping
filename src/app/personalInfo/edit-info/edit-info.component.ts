@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PersonalInfoService } from '../personal-info.service';
 
 @Component({
   selector: 'app-edit-info',
@@ -9,7 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EditInfoComponent implements OnInit {
   personalInfo:FormGroup;
 
-  constructor() { }
+  constructor(
+    private personalInfoServices:PersonalInfoService
+  ) { }
 
   ngOnInit() {
     this.personalInfo = new FormGroup({
@@ -19,6 +22,10 @@ export class EditInfoComponent implements OnInit {
     })
   }
   addPersonalInfo(){
-    
+    this.personalInfoServices.savePersonalInfo(
+      this.personalInfo.value.name,
+      this.personalInfo.value.address,
+      this.personalInfo.value.mobile
+      );
   }
 }

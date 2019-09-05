@@ -11,6 +11,8 @@ import { SingleProductComponent } from './products/single-product/single-product
 import { CartComponent } from './products/cart/cart.component';
 import { CheckoutComponent } from './products/checkout/checkout.component';
 import { AuthGuard } from './auth/auth-guard';
+import { EditInfoComponent } from './personalInfo/edit-info/edit-info.component';
+import { ShowInfoComponent } from './personalInfo/show-info/show-info.component';
 
 const routes: Routes = [
   {
@@ -70,6 +72,13 @@ const routes: Routes = [
   path:'checkout',
   component:CheckoutComponent,
   // canActivate:[AuthGuard]
+},{
+  path:'editPersonalInfo',
+  component:EditInfoComponent
+},
+{
+  path:'showPersonalInfo',
+  component:ShowInfoComponent
 },
 {
   path:'**',

@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
 export class CheckoutComponent implements OnInit {
 
   public payPalConfig?: IPayPalConfig; 
-  totalPrice="0";
+  totalPrice=0;
   
   constructor(
     private productService:ProductService

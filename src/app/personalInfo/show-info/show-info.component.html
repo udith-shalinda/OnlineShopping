@@ -1,1 +1,6 @@
-<p>show-info works!</p>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-card *ngIf="!isLoading">
+    <h2>{{name}}</h2>
+    <h3>{{address}}</h3>
+    <h4>{{mobile}}</h4>
+</mat-card>

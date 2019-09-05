@@ -42,7 +42,7 @@ export class AuthService{
                 this.isAuthed = true;
                 this.authStatusListner.next(true);
                 this.userId = response.userId;
-                this.router.navigate(["/home"]);
+                this.router.navigate(["/personalInfo"]);
             }
         },error=>{
             this.errormessageListner.next(error.error.message);

@@ -34,10 +34,10 @@ export class CartComponent implements OnInit {
     });
   }
   checkoutClicked(){
-    let total = '';
+    let total = 0;
     this.cartItemList.forEach(element => {
      if(element.isChecked === true){
-       total += element.itemInfo[0].price;
+       total += parseFloat(element.itemInfo[0].price);
      }
     });
     console.log(total);

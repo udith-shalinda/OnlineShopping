@@ -10,9 +10,9 @@
             <label for="discription">Enter the discription of the product</label>
             <input type="text" placeholder="discription"  class="form-control" formControlName="discription">
             <label for="price">Enter the price of the product</label>            
-            <input type="text" placeholder="price"  class="form-control" formControlName="price">
+            <input type="number" placeholder="price"  class="form-control" formControlName="price">
             <label for="discount">Enter the discount of the product</label>
-            <input type="text" placeholder="discount"  class="form-control" formControlName="discount">
+            <input type="number" placeholder="discount"  class="form-control" formControlName="discount">
             <label for="category">Enter the category of the product</label>
             <input type="text" placeholder="category"  class="form-control" formControlName="category">
             <input type="file" value="add Images"  class="form-control" (change)="imagePicked($event)" multiple name="image">

@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 export class ProductService{
     items :any[] = [];
     itemSub=new Subject<{list:any[],maxPosts:number}>();
-    totalPrice="";
+    totalPrice=0;
 
       constructor(
         private http:HttpClient,
@@ -88,7 +88,7 @@ export class ProductService{
       getMyCart(){
         return this.http.get<{result:any}>('http://localhost:5000/item/getMyCart');
       }
-      setPrice(price:string){
+      setPrice(price:number){
         this.totalPrice = price;
       }
       getPrice(){

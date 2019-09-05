@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonalInfoService } from '../personal-info.service';
+import { PersonalData } from '../personal-info-model';
 
 @Component({
   selector: 'app-show-info',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-info.component.css']
 })
 export class ShowInfoComponent implements OnInit {
+  name='';
+  address='';
+  mobile='';
+ 
 
-  constructor() { }
+  isLoading:boolean= false;
+
+  constructor(
+    private personalInfoService:PersonalInfoService
+  ) { }
 
   ngOnInit() {
+    this.isLoading = true;
+    this.personalInfoService.getInfo()
+    .subscribe(result=>{
+      this.name = result.info.name;
+      this.address = result.info.address;
+      this.mobile = result.info.mobile;
+      this.isLoading = false;
+    });
   }
 
 }
