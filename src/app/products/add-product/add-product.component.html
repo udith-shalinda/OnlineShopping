@@ -1,15 +1,21 @@
 <mat-card>
-        <form [formGroup]="productForm" (ngSubmit)="addProduct()" >
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()" enctype="multipart/form-data">
             <div>
                 <span fxFlex></span>
                   <h2>Add product for sale</h2>
                 <span fxFlex></span>
               </div>
-            <label for="email">Enter the name of the product</label>
-            <input type="email" placeholder="name"  class="form-control" formControlName="name"> 
-            <label for="password">Enter the price of the product</label>
+            <label for="name">Enter the name of the product</label>
+            <input type="text" placeholder="name"  class="form-control" formControlName="name"> 
+            <label for="discription">Enter the discription of the product</label>
+            <input type="text" placeholder="discription"  class="form-control" formControlName="discription">
+            <label for="price">Enter the price of the product</label>            
             <input type="text" placeholder="price"  class="form-control" formControlName="price">
-            <input type="file" value="add Images"  class="form-control" (change)="imagePicked($event)" multiple>
+            <label for="discount">Enter the discount of the product</label>
+            <input type="text" placeholder="discount"  class="form-control" formControlName="discount">
+            <label for="category">Enter the category of the product</label>
+            <input type="text" placeholder="category"  class="form-control" formControlName="category">
+            <input type="file" value="add Images"  class="form-control" (change)="imagePicked($event)" multiple name="image">
             <div>
               <span fxFlex></span>
               <button type="submit" mat-raised-button color="primary" >Add</button>

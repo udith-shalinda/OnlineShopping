@@ -28,6 +28,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { SingleProductComponent } from './products/single-product/single-product.component';
 import { CartComponent } from './products/cart/cart.component';
 import { CheckoutComponent } from './products/checkout/checkout.component';
+import { EditInfoComponent } from './personalInfo/edit-info/edit-info.component';
+import { ShowInfoComponent } from './personalInfo/show-info/show-info.component';
 
 
 
@@ -44,7 +46,9 @@ import { CheckoutComponent } from './products/checkout/checkout.component';
     AddProductComponent,
     SingleProductComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    EditInfoComponent,
+    ShowInfoComponent
   ],
   imports: [
     BrowserModule,

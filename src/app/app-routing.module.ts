@@ -10,6 +10,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { SingleProductComponent } from './products/single-product/single-product.component';
 import { CartComponent } from './products/cart/cart.component';
 import { CheckoutComponent } from './products/checkout/checkout.component';
+import { AuthGuard } from './auth/auth-guard';
 
 const routes: Routes = [
   {
@@ -58,14 +59,17 @@ const routes: Routes = [
   component:SignupComponent
 },{
   path:'addItem',
-  component:AddProductComponent
+  component:AddProductComponent,
+  // canActivate:[AuthGuard]
 },
 {
   path:'cart',
-  component:CartComponent
+  component:CartComponent,
+  // canActivate:[AuthGuard]
 },{
   path:'checkout',
-  component:CheckoutComponent
+  component:CheckoutComponent,
+  // canActivate:[AuthGuard]
 },
 {
   path:'**',

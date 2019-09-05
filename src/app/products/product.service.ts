@@ -16,27 +16,35 @@ export class ProductService{
         private router:Router,
       ){}
 
-      addItem(name:string ,price:string, image:File |string){
+      addItem(name:string ,price:string, image:File[] | string[],discription:string,discount:string,category:string){
         let newData : ProductData | FormData;
-        if(typeof image === 'object'){
+        if(typeof image[0] === 'object'){
             newData = new FormData();
             newData.append("name",name);
             newData.append("price",price);
-            newData.append("image",image,name);
-        }else{
-            newData ={
-                _id:null,
-                name:name,
-                price:price,
-                image:image,
-                creater:null
-            };
+            newData.append('discount',discount);
+            newData.append('discription',discription);
+            newData.append('category',category);            
+            newData.append("imageOne",image[0],name+"1");
+            newData.append("imageOne",image[1],name+"2");
+            newData.append("imageOne",image[2],name+"3");
         }
+        // else{
+        //     newData ={
+        //         _id:null,
+        //         name:name,
+        //         price:price,
+        //         images:image,
+        //         creater:null
+        //     };
+        // }
         this.http.post('http://localhost:5000/item/addItem',newData)
         .subscribe((responseData)=>{
             this.router.navigate(["/"]);
             console.log(responseData);
         });
+        console.log('hello image is an object'+ newData)
+
       }
       getAllItems(postPerPage:number,currentPage:number){
         const queryParams = `?pageSize=${postPerPage}&page=${currentPage}`;
